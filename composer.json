@@ -18,7 +18,7 @@
     },
     "extra": {
         "contenir": {
-            "component": "Contenir\\Mvc\\Controller\\SitemapController"
+            "component": "Contenir\\Mvc\\Controller\\"
         }
     },
     "require": {
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Contenir\\Mvc\\Controller\\SitemapController": "src/"
+            "Contenir\\Mvc\\Controller\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Contenir\\Mvc\\Controller\\SitemapController": "test/"
+            "Contenir\\Mvc\\Controller\\": "test/"
         }
     },
     "scripts": {
