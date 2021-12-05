@@ -17,7 +17,7 @@
         "sort-packages": true
     },
     "extra": {
-        "contenir": {
+        "laminas": {
             "component": "Contenir\\Mvc\\Sitemap\\"
         }
     },
