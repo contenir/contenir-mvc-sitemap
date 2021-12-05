@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controller;
+namespace Contenir\Mvc\Sitemap;
 
 use Laminas\Http\Response;
 use Laminas\Mvc\Controller\AbstractActionController;

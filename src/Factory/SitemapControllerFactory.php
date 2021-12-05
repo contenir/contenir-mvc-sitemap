@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\Controller\Factory;
+namespace Contenir\Mvc\Sitemap\Factory;
 
-use Application\Controller\SitemapController;
+use Contenir\Mvc\Sitemap\SitemapController;
 use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Helper\Navigation as NavigationProxyHelper;

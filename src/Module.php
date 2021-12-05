@@ -5,7 +5,7 @@
  * @copyright https://github.com/contenir/contenir-mvc-sitemap/blob/master/COPYRIGHT.md
  */
 
-namespace Contenir\Mvc\Controller;
+namespace Contenir\Mvc\Sitemap;
 
 use Laminas\Router\Http\Literal;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -22,31 +22,33 @@ class Module
     public function getConfig()
     {
         return [
-            'routes' => [
-                'sitemap' => [
-                    'type' => Literal::class,
-                    'options' => [
-                        'route'    => '/sitemap.xml',
-                        'defaults' => [
-                            'controller' => Controller\SitemapController::class,
-                            'action' => 'index'
+            'router' => [
+                'routes' => [
+                    'sitemap' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/sitemap.xml',
+                            'defaults' => [
+                                'controller' => SitemapController::class,
+                                'action' => 'index'
+                            ],
                         ],
                     ],
-                ],
-                'robots' => [
-                    'type' => Literal::class,
-                    'options' => [
-                        'route'    => '/robots.txt',
-                        'defaults' => [
-                            'controller' => Controller\SitemapController::class,
-                            'action' => 'robots'
+                    'robots' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/robots.txt',
+                            'defaults' => [
+                                'controller' => SitemapController::class,
+                                'action' => 'robots'
+                            ],
                         ],
                     ],
                 ],
             ],
             'controllers' => [
                 'factories' => [
-                    Controller\SitemapController::class => Controller\Factory\SitemapController::class
+                    SitemapController::class => Factory\SitemapControllerFactory::class
                 ]
             ]
         ];
