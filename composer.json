@@ -11,14 +11,14 @@
     "support": {
         "docs": "https://docs.contenir.com.au/contenir-mvc-sitemap/",
         "issues": "https://contenir.com.au/issues",
-        "source": "https://github.com/contenir/contenir-mvc-sitemap",
+        "source": "https://github.com/contenir/contenir-mvc-sitemap"
     },
     "config": {
         "sort-packages": true
     },
     "extra": {
         "contenir": {
-            "component": "Contenir\\Mvc\\Controller\\SitemapController",
+            "component": "Contenir\\Mvc\\Controller\\SitemapController"
         }
     },
     "require": {
