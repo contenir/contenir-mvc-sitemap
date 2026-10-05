@@ -22,7 +22,7 @@ use function sprintf;
  *
  * @api
  */
-class SitemapController extends AbstractActionController
+final class SitemapController extends AbstractActionController
 {
     /**
      * The navigation container service the sitemap is rendered from.

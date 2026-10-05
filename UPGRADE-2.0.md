@@ -32,6 +32,23 @@ $controller = (new SitemapControllerFactory())($container, SitemapController::cl
 $controller = (new SitemapControllerFactory())($container);
 ```
 
+## `SitemapController`
+
+`SitemapController` is `final`. To change what it renders, point the route
+at your own controller instead of extending it:
+
+```php
+// 1.x
+class MySitemapController extends SitemapController { /* … */ }
+
+// 2.0: register your own controller for the sitemap route
+return [
+    'router' => ['routes' => ['sitemap' => ['options' => ['defaults' => [
+        'controller' => MySitemapController::class,
+    ]]]]],
+];
+```
+
 ## `Module`
 
 `Module` is `final`, and `getConfig()` declares an `array` return type.

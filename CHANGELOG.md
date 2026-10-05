@@ -16,8 +16,8 @@ all Contenir 2.x packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
 - `SitemapControllerFactory` takes a PSR-11 container instead of the
   deprecated container-interop interface, which laminas-servicemanager 4
   drops, and no longer implements laminas-servicemanager's
-  `FactoryInterface`. `Module` and the
-  factory are `final`.
+  `FactoryInterface`. `Module`, the factory and `SitemapController` are
+  `final`.
 - The controller throws a `DomainException` when it is dispatched without an
   HTTP request or response.
 - The laminas packages the code uses (laminas-http, laminas-router,
@@ -26,6 +26,8 @@ all Contenir 2.x packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
   it now needs 3.8, the first release free of PHP 8.4 deprecations.
 
 ### Added
+
+- `LICENSE.md` with the BSD-3-Clause text `composer.json` already declared.
 
 - `SitemapController::CONTAINER`, the navigation container's service name
   (`cms`).
