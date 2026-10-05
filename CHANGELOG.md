@@ -13,8 +13,10 @@ all Contenir 2.x packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
 ### Changed
 
 - Requires PHP 8.3, 8.4 or 8.5. PHP 8.0 to 8.2 are no longer supported.
-- `SitemapControllerFactory` takes a PSR-11 container and no longer
-  implements laminas-servicemanager's `FactoryInterface`. `Module` and the
+- `SitemapControllerFactory` takes a PSR-11 container instead of the
+  deprecated container-interop interface, which laminas-servicemanager 4
+  drops, and no longer implements laminas-servicemanager's
+  `FactoryInterface`. `Module` and the
   factory are `final`.
 - The controller throws a `DomainException` when it is dispatched without an
   HTTP request or response.
@@ -32,9 +34,6 @@ all Contenir 2.x packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
 
 ### Fixed
 
-- `SitemapControllerFactory` type-hinted `Interop\Container\ContainerInterface`,
-  which laminas-servicemanager 3.22+ no longer installs, so building the
-  controller failed on current dependencies.
 - A `ViewHelperManager` or Sitemap helper of the wrong type raises a
   `ServiceNotCreatedException` that names it, instead of a `TypeError`.
 
