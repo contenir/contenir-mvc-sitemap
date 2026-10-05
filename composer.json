@@ -2,6 +2,7 @@
     "name": "contenir/contenir-mvc-sitemap",
     "description": "Contenir MVC Sitemap",
     "license": "BSD-3-Clause",
+    "type": "library",
     "keywords": [
         "contenir",
         "laminas",
@@ -13,21 +14,19 @@
         "issues": "https://contenir.com.au/issues",
         "source": "https://github.com/contenir/contenir-mvc-sitemap"
     },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laminas": {
-            "component": "Contenir\\Mvc\\Sitemap"
-        }
-    },
     "require": {
-        "php": "^8.0.0",
-        "laminas/laminas-mvc": "^3.0"
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "laminas/laminas-http": "^2.19",
+        "laminas/laminas-mvc": "^3.8",
+        "laminas/laminas-navigation": "^2.19",
+        "laminas/laminas-router": "^3.13",
+        "laminas/laminas-servicemanager": "^3.22 || ^4.0",
+        "laminas/laminas-view": "^2.35",
+        "psr/container": "^1.1 || ^2.0"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "~1.0.0",
-        "phpunit/phpunit": "^9.3"
+        "php-db/phpdb-qa-tools": "0.1.x-dev",
+        "phpunit/phpunit": "^11.5.42"
     },
     "autoload": {
         "psr-4": {
@@ -36,17 +35,43 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Contenir\\Mvc\\Sitemap\\": "test/"
+            "Contenir\\Mvc\\Sitemap\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "check": [
             "@cs-check",
-            "@test"
+            "@static-analysis",
+            "@test",
+            "@test-integration"
         ],
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
-        "test": "phpunit --colors=always",
+        "cs-check": [
+            "mago format --check",
+            "mago lint"
+        ],
+        "cs-fix": [
+            "mago format",
+            "mago lint --fix"
+        ],
+        "static-analysis": "mago analyze",
+        "test": "phpunit --colors=always --testsuite unit",
+        "test-integration": "phpunit --colors=always --testsuite integration",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    }
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.99"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "2.0.x-dev"
+        },
+        "laminas": {
+            "component": "Contenir\\Mvc\\Sitemap"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

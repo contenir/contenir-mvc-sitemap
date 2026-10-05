@@ -1,37 +1,61 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Contenir\Mvc\Sitemap\Factory;
 
 use Contenir\Mvc\Sitemap\SitemapController;
-use Interop\Container\ContainerInterface;
-use Laminas\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\View\Exception\RuntimeException as ViewRuntimeException;
 use Laminas\View\Helper\Navigation as NavigationProxyHelper;
 use Laminas\View\Helper\Navigation\Sitemap;
 use Laminas\View\HelperPluginManager;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-class SitemapControllerFactory implements FactoryInterface
+use function get_debug_type;
+use function sprintf;
+
+/**
+ * Builds the SitemapController around the Sitemap helper of the
+ * application's navigation view helper.
+ *
+ * @api
+ */
+final class SitemapControllerFactory
 {
-    public function __invoke(
-        ContainerInterface $container,
-        $requestedName,
-        array $options = null
-    ): SitemapController {
-        // View helper manager
-        /** @var HelperPluginManager $viewHelperPluginManager */
-        $viewHelperPluginManager = $container->get('ViewHelperManager');
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ServiceNotCreatedException when the view helper manager or the Sitemap helper has the wrong type.
+     * @throws ViewRuntimeException when the navigation helper has no Sitemap helper.
+     *
+     * @mago-expect analysis:mixed-assignment Container services are untyped; the type is checked here.
+     */
+    public function __invoke(ContainerInterface $container): SitemapController
+    {
+        $viewHelperManager = $container->get('ViewHelperManager');
+        if (! $viewHelperManager instanceof HelperPluginManager) {
+            throw new ServiceNotCreatedException(sprintf(
+                'Service "ViewHelperManager" must be a %s, %s given',
+                HelperPluginManager::class,
+                get_debug_type($viewHelperManager),
+            ));
+        }
 
-        // Navigation view helper
-        /** @var NavigationProxyHelper $navigationHelper */
-        $navigationHelper = $viewHelperPluginManager->get(
-            NavigationProxyHelper::class
-        );
+        $navigation = $viewHelperManager->get(NavigationProxyHelper::class);
 
-        // Sitemap view helper
-        /** @var Sitemap $sitemapHelper */
-        $sitemapHelper = $navigationHelper->findHelper(Sitemap::class);
+        $sitemap = $navigation->findHelper(Sitemap::class);
+        if (! $sitemap instanceof Sitemap) {
+            throw new ServiceNotCreatedException(sprintf(
+                'Navigation helper "%s" must be a %s, %s given',
+                Sitemap::class,
+                Sitemap::class,
+                get_debug_type($sitemap),
+            ));
+        }
 
-        $controller = new SitemapController($sitemapHelper);
-
-        return $controller;
+        return new SitemapController($sitemap);
     }
 }

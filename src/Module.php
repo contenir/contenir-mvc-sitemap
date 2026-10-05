@@ -1,46 +1,49 @@
 <?php
 
-/**
- * @see       https://github.com/contenir/contenir-mvc-sitemap for the canonical source repository
- * @copyright https://github.com/contenir/contenir-mvc-sitemap/blob/master/COPYRIGHT.md
- */
+declare(strict_types=1);
 
 namespace Contenir\Mvc\Sitemap;
 
 use Laminas\Router\Http\Literal;
-use Laminas\ServiceManager\Factory\InvokableFactory;
 
-class Module
+/**
+ * laminas-mvc module: the /sitemap.xml and /robots.txt routes and the
+ * controller that serves them.
+ *
+ * @see https://github.com/contenir/contenir-mvc-sitemap for the canonical source repository
+ *
+ * @api
+ */
+final class Module
 {
     /**
-     * Provide application configuration.
-     *
-     * Adds routes and factories for the Sitemap Controller.
-     *
-     * @return array
+     * @return array{
+     *     router: array{routes: array<string, array<string, mixed>>},
+     *     controllers: array{factories: array<class-string, class-string>},
+     * }
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         return [
-            'router' => [
+            'router'      => [
                 'routes' => [
                     'sitemap' => [
-                        'type' => Literal::class,
+                        'type'    => Literal::class,
                         'options' => [
                             'route'    => '/sitemap.xml',
                             'defaults' => [
                                 'controller' => SitemapController::class,
-                                'action' => 'index'
+                                'action'     => 'index',
                             ],
                         ],
                     ],
-                    'robots' => [
-                        'type' => Literal::class,
+                    'robots'  => [
+                        'type'    => Literal::class,
                         'options' => [
                             'route'    => '/robots.txt',
                             'defaults' => [
                                 'controller' => SitemapController::class,
-                                'action' => 'robots'
+                                'action'     => 'robots',
                             ],
                         ],
                     ],
@@ -48,9 +51,9 @@ class Module
             ],
             'controllers' => [
                 'factories' => [
-                    SitemapController::class => Factory\SitemapControllerFactory::class
-                ]
-            ]
+                    SitemapController::class => Factory\SitemapControllerFactory::class,
+                ],
+            ],
         ];
     }
 }
