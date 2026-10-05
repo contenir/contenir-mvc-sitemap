@@ -1,5 +1,5 @@
 {
-    "name": "contenir/contenir-mvc-sitemap",
+    "name": "contenir/contenir-sitemap-laminas-mvc",
     "description": "Contenir MVC Sitemap",
     "license": "BSD-3-Clause",
     "type": "library",
@@ -12,7 +12,7 @@
     "support": {
         "docs": "https://docs.contenir.com.au/contenir-mvc-sitemap/",
         "issues": "https://contenir.com.au/issues",
-        "source": "https://github.com/contenir/contenir-mvc-sitemap"
+        "source": "https://github.com/contenir/contenir-sitemap-laminas-mvc"
     },
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
@@ -28,6 +28,9 @@
         "infection/infection": "^0.34.1",
         "php-db/phpdb-qa-tools": "0.1.x-dev",
         "phpunit/phpunit": "^11.5.42"
+    },
+    "replace": {
+        "contenir/contenir-mvc-sitemap": "self.version"
     },
     "autoload": {
         "psr-4": {
@@ -72,7 +75,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "2.0.x-dev"
+            "dev-main": "2.1.x-dev"
         },
         "laminas": {
             "component": "Contenir\\Mvc\\Sitemap"

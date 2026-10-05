@@ -1,7 +1,9 @@
-# contenir/contenir-mvc-sitemap
+# contenir/contenir-sitemap-laminas-mvc
 
-[![Continuous Integration](https://github.com/contenir/contenir-mvc-sitemap/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/contenir/contenir-mvc-sitemap/actions/workflows/continuous-integration.yml)
-[![codecov](https://codecov.io/gh/contenir/contenir-mvc-sitemap/graph/badge.svg)](https://codecov.io/gh/contenir/contenir-mvc-sitemap)
+Formerly `contenir/contenir-mvc-sitemap`; the old package is abandoned in favour of this one.
+
+[![Continuous Integration](https://github.com/contenir/contenir-sitemap-laminas-mvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/contenir/contenir-sitemap-laminas-mvc/actions/workflows/continuous-integration.yml)
+[![codecov](https://codecov.io/gh/contenir/contenir-sitemap-laminas-mvc/graph/badge.svg)](https://codecov.io/gh/contenir/contenir-sitemap-laminas-mvc)
 
 A laminas-mvc module for [Contenir CMS](https://contenir.com.au) sites. It
 serves `/sitemap.xml` from the site's `cms` navigation container, and a
@@ -19,7 +21,7 @@ The 1.x releases, which support PHP 8.0 to 8.2, remain available from the
 ## Installation
 
 ```bash
-composer require contenir/contenir-mvc-sitemap
+composer require contenir/contenir-sitemap-laminas-mvc
 ```
 
 With the Laminas component installer, the `Contenir\Mvc\Sitemap` module

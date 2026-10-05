@@ -11,7 +11,7 @@ code that extends or calls the module's classes directly are affected.
 | laminas-navigation | (undeclared) | ^2.19 |
 
 ```bash
-composer require contenir/contenir-mvc-sitemap:^2.0
+composer require contenir/contenir-sitemap-laminas-mvc:^2.0
 ```
 
 Projects that must stay on PHP 8.0 to 8.2 can keep using `^1.0`, maintained
@@ -67,3 +67,15 @@ return [
 The controller is unchanged for laminas-mvc applications. Dispatched without
 an HTTP request or response, it now throws
 `Laminas\Mvc\Exception\DomainException` instead of failing with an `Error`.
+
+## Package renamed in 2.1
+
+From 2.1, the package is published as `contenir/contenir-sitemap-laminas-mvc`.
+It declares `replace` for `contenir/contenir-mvc-sitemap`, so the two can
+never be installed together. Switch the requirement:
+
+```bash
+composer remove contenir/contenir-mvc-sitemap && composer require contenir/contenir-sitemap-laminas-mvc:^2.1
+```
+
+No code changes are needed: namespaces and classes are unchanged.

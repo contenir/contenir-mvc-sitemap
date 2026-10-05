@@ -10,7 +10,7 @@ use Laminas\Router\Http\Literal;
  * laminas-mvc module: the /sitemap.xml and /robots.txt routes and the
  * controller that serves them.
  *
- * @see https://github.com/contenir/contenir-mvc-sitemap for the canonical source repository
+ * @see https://github.com/contenir/contenir-sitemap-laminas-mvc for the canonical source repository
  *
  * @api
  */
