@@ -22,7 +22,8 @@ all Contenir 2.x packages. See [UPGRADE-2.0.md](UPGRADE-2.0.md).
   HTTP request or response.
 - The laminas packages the code uses (laminas-http, laminas-router,
   laminas-view, laminas-navigation, laminas-servicemanager) and
-  `psr/container` are now required. Before, only laminas-mvc was declared.
+  `psr/container` are now required. Before, only laminas-mvc was declared;
+  it now needs 3.8, the first release free of PHP 8.4 deprecations.
 
 ### Added
 
