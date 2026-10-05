@@ -10,7 +10,7 @@ serves `/sitemap.xml` from the site's `cms` navigation container, and a
 ## Requirements
 
 - PHP 8.3, 8.4 or 8.5
-- laminas-mvc 3.7+, laminas-router 3.13+, laminas-view 2.35+ and
+- laminas-mvc 3.8+, laminas-router 3.13+, laminas-view 2.35+ and
   laminas-navigation 2.19+
 
 The 1.x releases, which support PHP 8.0 to 8.2, remain available from the

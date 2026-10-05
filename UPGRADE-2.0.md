@@ -6,7 +6,7 @@ code that extends or calls the module's classes directly are affected.
 | | 1.x | 2.0 |
 | --- | --- | --- |
 | PHP | ^8.0 | 8.3, 8.4 or 8.5 |
-| laminas-mvc | ^3.0 | ^3.7 |
+| laminas-mvc | ^3.0 | ^3.8 |
 | laminas-servicemanager | (undeclared) | ^3.22 or ^4.0 |
 | laminas-navigation | (undeclared) | ^2.19 |
 
