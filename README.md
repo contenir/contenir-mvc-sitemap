@@ -74,6 +74,7 @@ composer static-analysis   # mago analyze
 composer test              # unit suite: module config and controller with a doubled helper, no I/O
 composer test-integration  # integration suite: real router, view helpers and navigation container
 composer test-coverage     # both suites, clover.xml for Codecov
+composer mutation-test     # Infection mutation testing over both suites
 ```
 
 ## License

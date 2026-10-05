@@ -77,6 +77,15 @@ final class SitemapControllerTest extends TestCase
         static::assertSame('<urlset/>', $response->getContent());
     }
 
+    #[Test]
+    public function robotsActionNeedsARouterToLinkTheSitemap(): void
+    {
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('Url plugin requires that controller event compose a router; none found');
+
+        (new SitemapController($this->createStub(Sitemap::class)))->robotsAction();
+    }
+
     private function dispatch(
         SitemapController $controller,
         string $action,
