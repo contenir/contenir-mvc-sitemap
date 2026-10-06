@@ -10,7 +10,7 @@
     ],
     "homepage": "https://contenir.com.au",
     "support": {
-        "docs": "https://docs.contenir.com.au/contenir-mvc-sitemap/",
+        "docs": "https://github.com/contenir/contenir-sitemap-laminas-mvc#readme",
         "issues": "https://contenir.com.au/issues",
         "source": "https://github.com/contenir/contenir-sitemap-laminas-mvc"
     },
